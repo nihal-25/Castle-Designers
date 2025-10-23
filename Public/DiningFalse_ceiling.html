@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="False_Ceiling.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Castle Designers | Dining Room False Ceilings</title>
+    <link rel="icon" href="new2.png" type="image" />
+  </head>
+
+  <body>
+    <hr />
+    <h2>|CA𝕊TLΣ DE𝕊IGNΣR𝕊|<br /></h2>
+    <h4>------BE$T IN TOWN------</h4>
+
+    <h1 class="Page_Title">DINING ROOM FALSE CEILINGS</h1>
+
+    
+    <form action="/saveDesign" method="POST" id="ceilingForm" style="text-align: center; margin-top: 30px;">
+      <input type="hidden" name="room" value="Dining Room" />
+      <input type="hidden" name="category" value="False Ceiling" />
+      <input type="hidden" id="selection" name="selection" value="" />
+
+      <button type="submit" class="Submit_Your_Choices" >
+        SUBMIT YOUR CHOICES
+      </button>
+    </form>
+
+   
+    <div class="design-container">
+      <div class="Interior_Design_Options" id="Plaster_Of_Paris_False_Ceiling">
+        <img
+          src="Plaster_Of_Paris_False_Ceiling.jpg"
+          alt="Plaster_Of_Paris_False_Ceiling"
+        />
+        <h1 class="Image_Captions">Plaster of Paris False Ceiling</h1>
+        <p class="Description">
+          The Plaster of Paris false ceilings have high durability and can be
+          shaped and designed as per the requirements.
+        </p>
+        <div class="button-group">
+          <button
+            class="Add_to_The_Preferences_List"
+            onclick="Select_Preferences('Plaster_Of_Paris_False_Ceiling')"
+          >
+            Add to The Preferences List
+          </button>
+          <button
+            class="More_Details"
+            onclick="display('Plaster_Of_Paris_False_Ceiling')"
+          >
+            More details
+          </button>
+        </div>
+      </div>
+
+      <div class="Interior_Design_Options" id="Wooden_False_Ceiling">
+        <img
+          src="Wooden_False_Ceiling.avif"
+          alt="Wooden_False_Ceiling"
+        />
+        <h1 class="Image_Captions">Wooden False Ceiling</h1>
+        <p class="Description">
+          Wooden false ceilings provide a warm, natural look. They are made from
+          hollow blocks, panels, or plywood and give a rustic aesthetic.
+        </p>
+        <div class="button-group">
+          <button
+            class="Add_to_The_Preferences_List"
+            onclick="Select_Preferences('Wooden_False_Ceiling')"
+          >
+            Add to The Preferences List
+          </button>
+          <button
+            class="More_Details"
+            onclick="display('Wooden_False_Ceiling')"
+          >
+            More details
+          </button>
+        </div>
+      </div>
+
+      <div class="Interior_Design_Options" id="Fibre_False_Ceiling">
+        <img
+          src="Fibre_False_Ceiling.jpg"
+          alt="Fibre_False_Ceiling"
+        />
+        <h1 class="Image_Captions">Fibre False Ceiling</h1>
+        <p class="Description">
+          Fibre false ceilings are affordable, easy to install, and popular in
+          commercial applications like showrooms and kitchens.
+        </p>
+        <div class="button-group">
+          <button
+            class="Add_to_The_Preferences_List"
+            onclick="Select_Preferences('Fibre_False_Ceiling')"
+          >
+            Add to The Preferences List
+          </button>
+          <button
+            class="More_Details"
+            onclick="display('Fibre_False_Ceiling')"
+          >
+            More details
+          </button>
+        </div>
+      </div>
+    </div>
+
+    
+    <script>
+      let selectedDesign = "";
+
+      function display(ID_Name) {
+        const div = document.getElementById(ID_Name);
+        const desc = div.querySelector(".Description");
+        const btn = div.querySelector(".More_Details");
+
+        if (btn.innerText === "More details") {
+          desc.style.display = "block";
+          btn.innerText = "Less details";
+        } else {
+          desc.style.display = "none";
+          btn.innerText = "More details";
+        }
+      }
+
+      function Select_Preferences(ID_Name) {
+        const div = document.getElementById(ID_Name);
+        const button = div.querySelector(".Add_to_The_Preferences_List");
+        const caption = div.querySelector(".Image_Captions").innerText;
+
+        document.querySelectorAll(".Add_to_The_Preferences_List").forEach((btn) => {
+          btn.style.backgroundColor = "transparent";
+          btn.innerText = "Add to The Preferences List";
+        });
+
+        if (selectedDesign === caption) {
+          selectedDesign = "";
+        } else {
+          selectedDesign = caption;
+          button.style.backgroundColor = "green";
+          button.innerText = "Deselect the Preference";
+        }
+
+        document.getElementById("selection").value = selectedDesign;
+      }
+
+      document
+        .getElementById("ceilingForm")
+        .addEventListener("submit", function (e) {
+          if (!selectedDesign) {
+            e.preventDefault();
+            alert("⚠️ Please select a design before submitting!");
+          }
+        });
+    </script>
+  </body>
+</html>

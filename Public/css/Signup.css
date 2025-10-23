@@ -1,0 +1,161 @@
+body {
+  background-image: conic-gradient(black, #ffffff);
+  font-family: "Poppins", sans-serif;
+  grid-template-areas: repeat(auto-fill);
+}
+a.main {
+  color: #000000;
+  position: fixed;
+  top: 200px;
+  left: 150px;
+  font-size: 30px;
+  letter-spacing: 10px;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  scale: 1.2;
+  transition: 1.3s;
+}
+h4 {
+  color: #000000;
+  position: fixed;
+  top: 230px;
+  left: 240px;
+  letter-spacing: 3px;
+}
+h5 {
+  color: #000000;
+  font-size: 18px;
+  position: relative;
+  bottom: 20px;
+}
+h3 {
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+  position: relative;
+  top: 320px;
+  left: 285px;
+}
+#Passwords_do_not_match{
+	color: red;
+}
+form {
+  border-radius: 5px 100px;
+  box-sizing: content-box;
+  width: fit-content;
+  height: fit-content;
+  color: #ffffff;
+  background-image: linear-gradient(45deg,#ffffff, #bebdbd);
+  padding: 0px 40px;
+  text-align: center;
+  position: relative;
+  align-items: center;
+  left: 750px;
+  bottom: 20px;
+  animation-name: pop;
+  animation-duration: 1s;
+}
+form:hover {
+  transition: 0.5s;
+  box-shadow: 0 0 40px #ffffff;
+}
+::placeholder {
+  font-family: "poppins";
+  font-size: 18px;
+  color: #303030;
+  opacity: 1;
+}
+ion-icon {
+  color: #000000;
+  scale: 2;
+  cursor:grab;
+  position: relative;
+  top: 30px;
+  left: 180px;
+}
+input {
+  background-color: rgba(180, 179, 179, 0.01);
+  width: 400px;
+  height: 40px;
+  font-size: 20px;
+  border: solid rgb(131, 130, 130) 2px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+input:focus {
+  scale: 1.05;
+  outline: none;
+  transition: 1s;
+}
+#signup {
+  text-transform: capitalize;
+  font-size: 18px;
+  width: 220px;
+  height: 25px;
+  border: solid #000000;
+  border-radius: 55px;
+  background-color: transparent;
+  position: static;
+  cursor: grab;
+  top: 0px;
+  left: 0px;
+  height: 45px;
+}
+#signup:hover {
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+  background-color: #000000;
+  transition: .8s;
+}
+#icon:hover {
+  color: #ffffff;
+}
+#eye{
+  height: 30px;width: 30px;
+  position: relative;
+  top: 40px;left: 177px;
+  background: yellow;
+}
+#s {
+  height: 55px;
+  width: 55px;
+  border-radius: 1000px;
+  animation-name: img;
+  animation-duration: 1.4s;
+}
+#s:hover {
+  transform: scale(1.4, 1.4);
+  transition: 1s;
+}
+ul li {
+  cursor: pointer;
+  list-style-type: none;
+  position: relative;
+  bottom: 320px;
+  left: 105px;
+  display: inline;
+  padding: 45px;
+}
+@keyframes pop {
+  0% {
+    transform: translateX(-10000px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+@keyframes img {
+  0% {
+    scale: 0;
+  }
+  50% {
+    scale: 1.3;
+  }
+  100% {
+    scale: 1;
+  }
+}

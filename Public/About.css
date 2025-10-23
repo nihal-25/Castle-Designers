@@ -1,0 +1,76 @@
+body{
+    background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(https://images5.alphacoders.com/453/453756.jpg);
+    color: rgb(255, 255, 255);
+    animation: change;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+@keyframes change {
+    0% {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.8),
+          rgba(0, 0, 0, 0.3)
+        ),
+        url(https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aW50ZXJpb3IlMjBkZXNpZ258ZW58MHx8MHx8&w=1000&q=80);
+      background-size: cover;
+    }
+    20% {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.8),
+          rgba(0, 0, 0, 0.35)
+        ),
+        url(https://images.unsplash.com/photo-1556912173-3bb406ef7e77?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbiUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80);
+      background-size: cover;
+    }
+    40% {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.35)
+        ),
+        url(https://images5.alphacoders.com/453/453756.jpg);
+      background-size: cover;
+    }
+    
+  }
+  p{
+    border: 2px solid white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 35px orange;
+    
+  }
+  p::first-letter{
+    font-size: 44px;
+    color: orange;
+  }
+  p:hover{
+    scale:1.1;
+    transition: 1s;
+  }
+  h2,h4{
+    position: relative;
+    left: 40px;
+  }
+  #btn3{
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    font-weight: 700;
+    top: 70pt;
+    left: 515pt;
+    background: transparent;
+    width: 150px;
+    height: 50px;
+    color: #ffffff;
+    border: solid orange;
+    border-width: 4px;
+    border-radius: 25px;
+    animation-name: slideIn;
+    animation-duration: 3s;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    box-shadow: 0 0 10px orange;
+    transition: 0.5s ease;
+  }

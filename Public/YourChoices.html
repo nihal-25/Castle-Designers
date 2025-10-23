@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Your Choices | Castle Designers</title>
+
+   
+    <link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet" />
+    <link rel="stylesheet" href="YourChoices.css" />
+
+    <style>
+      
+      .yc-header { display:flex; justify-content:space-between; align-items:center; padding:12px 20px; }
+      .yc-header h2 { margin:0; color:inherit; }
+      .logout-top { position: absolute; top: 72px; right: 20px; background: #ff4d4d; border: none; color: #fff; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight:600; }
+      main.yc-main { padding: 120px 30px 60px 30px; max-width:1200px; margin:0 auto; box-sizing: border-box; }
+      .room-block { margin-bottom: 48px; }
+      .room-block h3 { margin: 8px 0 10px 0; font-size: 1.2rem; color: #222; }
+      .cards { display:flex; gap:16px; overflow-x:auto; padding:10px 4px; }
+      .card { min-width:200px; width:200px; background:#fff; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.08); padding:8px; text-align:center; }
+      .card img { width:100%; height:130px; object-fit:cover; border-radius:6px; }
+      .card p { margin:8px 0 0 0; font-size:0.95rem; color:#111; }
+      .empty { color:#777; font-style:italic; padding:12px 4px; }
+      
+    </style>
+  </head>
+
+  <body>
+   
+    <hr />
+    <h2><a href="/Interior.html">|CA𝕊TLΣ DE𝕊IGNΣR𝕊|</a><br /></h2>
+    <h4>------BE$T IN TOWN------</h4>
+
+     <nav>
+        <ul>
+          <li><a href="/YourChoices.html">YOUR CHOICES</a></li>
+          <li><a href="/LivingRoom.html">LIVING ROOM</a></li>
+          <li><a href="/KitchenRoom.html">KITCHEN</a></li>
+          <li><a href="/BedRoom.html">BEDROOM</a> </li>
+          <li><a href="/Dining.html">DINING</a></li>
+          <li><a href="/contactus.html">CONTACT US</a></li>
+        </ul>
+      </nav>
+    
+    <button class="logout-top" id="logoutBtn">Logout</button>
+
+    <main class="yc-main">
+      
+      <section id="living-room" class="room-block" aria-labelledby="living-title">
+        <h3 id="living-title">LIVING ROOM</h3>
+        <div class="cards" id="living-cards"></div>
+      </section>
+
+      <section id="kitchen" class="room-block" aria-labelledby="kitchen-title">
+        <h3 id="kitchen-title">KITCHEN</h3>
+        <div class="cards" id="kitchen-cards"></div>
+      </section>
+
+      <section id="bedroom" class="room-block" aria-labelledby="bedroom-title">
+        <h3 id="bedroom-title">BEDROOM</h3>
+        <div class="cards" id="bedroom-cards"></div>
+      </section>
+
+      <section id="dining" class="room-block" aria-labelledby="dining-title">
+        <h3 id="dining-title">DINING</h3>
+        <div class="cards" id="dining-cards"></div>
+      </section>
+    </main>
+
+    <script>
+      
+      const IMAGE_MAP = {
+        "Hardwood Flooring": "Hardwood_Flooring.avif",
+        "Carpet Flooring": "Carpet_Flooring.avif",
+        "Marble Flooring": "Marble_Flooring.avif",
+        "Aloe vera": "Aloe_vera_plant.avif",
+        "Snake plant": "Snake_plant.avif",
+        "Peace lily": "peace_lily.avif",
+        "Candle Chandeliers": "Candle_Chandeliers.avif",
+        "Crystal Chandeliers": "Crystal_Chandeliers.avif",
+        "Glass Chandeliers": "Glass_Chandeliers.avif",
+        "Plaster of Paris False Ceiling": "Plaster_Of_Paris_False_Ceiling.jpg",
+        "Wooden False Ceiling": "Wooden_False_Ceiling.avif",
+        "Fibre False Ceiling": "Fibre_False_Ceiling.jpg",
+        "Scandinavian furniture": "Scandinavian_Furniture.avif",
+        "Modern furniture": "Modern_furniture.avif",
+        "Rustic furniture": "Rustic_Furniture.avif"
+        
+      };
+
+      
+      const ROOM_KEYS = [
+        { key: "Living Room", containerId: "living-cards" },
+        { key: "Kitchen", containerId: "kitchen-cards" },
+        { key: "Bed Room", containerId: "bedroom-cards" },
+        { key: "Dining Room", containerId: "dining-cards" }
+      ];
+
+    
+      function makeCard(selectionText, category) {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        
+        const filename = IMAGE_MAP[selectionText] || selectionText.replace(/\s+/g, "_") + ".avif";
+
+        const img = document.createElement("img");
+        img.src = filename;
+        img.alt = selectionText;
+        img.onerror = function () {
+          
+          this.src = "Marble_Flooring.avif"; 
+        };
+
+        const p = document.createElement("p");
+        p.textContent = `${category} — ${selectionText}`;
+
+        card.appendChild(img);
+        card.appendChild(p);
+        return card;
+      }
+
+     
+      async function loadAndRenderChoices() {
+        try {
+          const res = await fetch("/getUserChoices");
+          if (!res.ok) {
+            
+            if (res.status === 401) {
+              window.location.href = "/login";
+              return;
+            }
+            throw new Error("Failed to fetch choices");
+          }
+
+          const designs = await res.json(); 
+
+         
+          const grouped = {};
+          (designs || []).forEach(doc => {
+            const room = doc.room || "Other";
+            if (!grouped[room]) grouped[room] = [];
+            grouped[room].push(doc);
+          });
+
+         
+          ROOM_KEYS.forEach(roomEntry => {
+            const container = document.getElementById(roomEntry.containerId);
+            container.innerHTML = ""; // clear
+
+            const docs = grouped[roomEntry.key] || [];
+
+            
+            if (docs.length === 0) {
+              container.innerHTML = '<div class="empty">No selections yet for this room.</div>';
+              return;
+            }
+
+            docs.forEach(doc => {
+              const category = doc.category || "Category";
+              const selections = Array.isArray(doc.selections) ? doc.selections : [];
+
+              if (selections.length === 0) {
+               
+                const placeholder = document.createElement("div");
+                placeholder.className = "card";
+                placeholder.innerHTML = `<p style="font-style:italic;color:#666">${category} — (no selection)</p>`;
+                container.appendChild(placeholder);
+                return;
+              }
+
+              selections.forEach(sel => {
+                const card = makeCard(sel, category);
+                container.appendChild(card);
+              });
+            });
+          });
+        } catch (err) {
+          console.error("Error loading user choices:", err);
+          document.querySelectorAll(".cards").forEach(c => {
+            c.innerHTML = '<div class="empty">Failed to load choices.</div>';
+          });
+        }
+      }
+
+      
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        fetch("/logout", { method: "GET" })
+          .then(() => { window.location.href = "/"; })
+          .catch(() => alert("Logout failed"));
+      });
+
+    
+      loadAndRenderChoices();
+    </script>
+  </body>
+</html>

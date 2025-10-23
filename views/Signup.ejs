@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Castle Designers | Sign Up</title>
+
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&family=Poppins&display=swap" rel="stylesheet" />
+
+ 
+  <link rel="stylesheet" href="/css/Signup.css" />
+
+  
+  <link rel="icon" href="/images/logo.png" type="image/png" />
+</head>
+
+<body>
+  <h2><a href="/" class="main">|CA𝕊TLE DE𝕊IGNER𝕊|</a></h2>
+  <h4>------WORTH YOUR WHILE------</h4>
+ 
+  <hr style="position: relative; top: 310px; right:400px; width:400px;">
+
+ 
+  <form action="/signup" method="post" onsubmit="return validateForm()">
+    <div class="inputs">
+      <h2 style="color:black">SIGN UP</h2>
+
+      <ion-icon name="person"></ion-icon>
+      <br><input type="text" id="fname" name="name" maxlength="40" placeholder="Name" required><br>
+
+      <ion-icon name="mail"></ion-icon>
+      <br><input type="email" id="email" name="email" placeholder="Email" required><br>
+
+      <ion-icon name="call"></ion-icon>
+      <br><input type="text" id="contactno" name="contactNumber" placeholder="Phone Number" maxlength="10"
+                 pattern="[0-9]{10}" title="Enter a valid 10-digit number" required><br>
+
+      <ion-icon name="key"></ion-icon>
+      <br><input type="password" id="set" name="password" placeholder="Set password" minlength="6" required><br>
+
+      <ion-icon name="eye"></ion-icon>
+      <br><input type="password" id="confirm" name="confirmPassword" placeholder="Confirm password" minlength="6" required><br><br>
+
+      <h2 id="Passwords_do_not_match"></h2>
+      <br><br>
+      
+      <input type="submit" id="signup" value="Sign up">
+    </div>
+
+    <h5>Already have an account? <a href="/login" class="log">Log In</a></h5>
+  </form>
+
+ 
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  
+  <script>
+    function validateForm() {
+      const name = document.getElementById("fname").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("contactno").value.trim();
+      const pass = document.getElementById("set").value.trim();
+      const confirm = document.getElementById("confirm").value.trim();
+
+      if (!name || !email || !phone || !pass || !confirm) {
+        alert("⚠️ Please fill in all fields before submitting.");
+        return false;
+      }
+
+      if (pass !== confirm) {
+        document.getElementById("Passwords_do_not_match").innerText = "Passwords do not match!";
+        document.getElementById("Passwords_do_not_match").style.color = "red";
+        return false;
+      }
+
+      if (!/^[0-9]{10}$/.test(phone)) {
+        alert("⚠️ Please enter a valid 10-digit phone number.");
+        return false;
+      }
+
+      return true;
+    }
+
+    
+    <% if (typeof messagedata !== "undefined" && messagedata.message) { %>
+      <% if (messagedata.sent === "True") { %>
+        alert("<%= messagedata.message %>");
+      <% } else { %>
+        document.addEventListener("DOMContentLoaded", () => {
+          const msg = document.getElementById("Passwords_do_not_match");
+          msg.innerText = "<%= messagedata.message %>";
+          msg.style.color = "red";
+        });
+      <% } %>
+    <% } %>
+  </script>
+</body>
+</html>

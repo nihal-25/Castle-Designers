@@ -1,0 +1,139 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("https://images5.alphacoders.com/453/453756.jpg") center/cover no-repeat
+      fixed;
+  color: #fff;
+}
+
+h2,
+h4 {
+  margin: 10px 0;
+  position: relative;
+  left: 25px;
+  font-family: "henny penny", Geneva, Verdana, sans-serif;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px orange;
+  color: #fff;
+}
+
+#Back_Button {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+}
+
+hr {
+  margin: 10px 60px;
+  border-color: orange;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+form.main {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid orange;
+  border-radius: 15px;
+  padding: 40px 50px;
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.3);
+  width: 350px;
+  text-align: center;
+}
+
+form.main h3 {
+  margin-bottom: 30px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-group ion-icon {
+  position: absolute;
+  left: 15px;
+  top: 13px;
+  color: #777;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 70%;
+  padding: 12px 40px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  transform: scale(1.05);
+  border-color: orange;
+}
+
+.options {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.options label {
+  font-size: 14px;
+  color: #fff;
+}
+
+#submit {
+  width: 100%;
+  height: 45px;
+  border: 2px solid orange;
+  border-radius: 10px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+#submit:hover {
+  background-image: linear-gradient(to right, orangered, orange);
+  border: none;
+  transform: scale(1.05);
+}
+
+h5 {
+  color: #fff;
+  margin-top: 30px;
+}
+
+a.sign {
+  color: orange;
+  text-decoration: none;
+}
+
+a.sign:hover {
+  text-decoration: underline;
+}
+
+::placeholder {
+  color: #777;
+}
+
+
+@media (max-width: 600px) {
+  form.main {
+    width: 85%;
+    padding: 30px;
+  }
+}

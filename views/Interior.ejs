@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Castle Designers</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+   
+   <link rel="icon" href="/images/new2.png" type="image/png" />
+
+    
+   <link rel="stylesheet" href="/css/Interior.css" />
+
+   
+
+    <script>
+      function confirmExit() {
+        if (confirm("Leaving so soon?")) {
+          window.close();
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <h2><a href="/">|CA𝕊TLΣ DE𝕊IGNΣR𝕊|</a></h2>
+      <h4>------BE$T IN TOWN------</h4>
+      <hr />
+    </header>
+
+    <main>
+      <section class="main">
+        <h1>Designing Dreams...</h1>
+        <p>Luxury in each detail.</p>
+      </section>
+
+      <nav>
+        <ul>
+          <li><a href="/login">YOUR CHOICES</a></li>
+          <li><a href="/login">LIVING ROOM</a></li>
+          <li><a href="/login">KITCHEN</a></li>
+          <li><a href="/login">BEDROOM</a> </li>
+          <li><a href="/login">DINING</a></li>
+        </ul>
+      </nav>
+
+      <div class="buttons">
+        <a href="/login" id="btn1">LOG IN</a>
+        <a href="/signup" id="btn2">SIGN UP</a>
+        <a href="/About.html" id="btn3">ABOUT US</a>
+        <a href="/contactus.html" id="btn4">CONTACT US</a>
+      </div>
+    </main>
+
+    <% if (typeof message !== "undefined") { %>
+      <script>
+        alert("<%= message %>");
+      </script>
+    <% } %>
+  </body>
+</html>

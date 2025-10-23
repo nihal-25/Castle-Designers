@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="Chandeliers.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Castle Designers | Dining Room Chandeliers</title>
+    <link rel="icon" href="new2.png" type="image" />
+  </head>
+  <body>
+    <hr />
+    <h2>|CA𝕊TLΣ DE𝕊IGNΣR𝕊|<br /></h2>
+    <h4>------BE$T IN TOWN------</h4>
+
+    <h1 class="Page_Title">DINING ROOM CHANDELIERS</h1>
+
+    
+    <form action="/saveDesign" method="POST" id="chandelierForm">
+      <input type="hidden" name="room" value="Dining Room" />
+      <input type="hidden" name="category" value="Chandeliers" />
+      <input type="hidden" id="selection" name="selection" value="" />
+
+      <button type="submit" class="Submit_Your_Choices">
+        SUBMIT YOUR CHOICES
+      </button>
+    </form>
+
+  
+     <div class="design-container">
+      <div class="Interior_Design_Options" id="Candle_Chandeliers">
+        <img src="Candle_Chandeliers.avif" alt="Candle_Chandeliers" />
+        <h1 class="Image_Captions">Candle Chandeliers</h1>
+        <p class="Description">
+          The granddaddy of it all — a candle chandelier takes the decoration back
+          to its roots. These chandeliers often have multiple arms, each with its
+          own candle-like bulb, giving a warm and vintage feel.
+        </p>
+        <div class="button-row">
+          <button
+            class="Add_to_The_Preferences_List"
+            onclick="Select_Preferences('Candle_Chandeliers')"
+          >
+            Add to The Preferences List
+          </button>
+          <button
+            class="More_Details"
+            onclick="display('Candle_Chandeliers');"
+          >
+            More details
+          </button>
+        </div>
+      </div>
+
+      <div class="Interior_Design_Options" id="Crystal_Chandeliers">
+        <img src="Crystal_Chandeliers.avif" alt="Crystal_Chandeliers" />
+        <h1 class="Image_Captions">Crystal Chandeliers</h1>
+        <p class="Description">
+          A timeless symbol of luxury, crystal chandeliers reflect light
+          beautifully and elevate the ambiance of any living room with elegance.
+        </p>
+        <div class="button-row">
+          <button
+            class="Add_to_The_Preferences_List"
+            onclick="Select_Preferences('Crystal_Chandeliers')"
+          >
+            Add to The Preferences List
+          </button>
+          <button
+            class="More_Details"
+            onclick="display('Crystal_Chandeliers');"
+          >
+            More details
+          </button>
+        </div>
+      </div>
+
+      <div class="Interior_Design_Options" id="Glass_Chandeliers">
+        <img src="Glass_Chandeliers.avif" alt="Glass_Chandeliers" />
+        <h1 class="Image_Captions">Glass Chandeliers</h1>
+        <p class="Description">
+          Glass Chandeliers are sleek, modern, and versatile. They fit perfectly
+          into rooms of all sizes, adding a contemporary flair.
+        </p>
+        <div class="button-row">
+          <button
+            class="Add_to_The_Preferences_List"
+            onclick="Select_Preferences('Glass_Chandeliers')"
+          >
+            Add to The Preferences List
+          </button>
+          <button class="More_Details" onclick="display('Glass_Chandeliers');">
+            More details
+          </button>
+        </div>
+      </div>
+    </div>
+
+    
+    <script>
+      let selectedDesign = "";
+
+      function display(ID_Name) {
+        const div = document.getElementById(ID_Name);
+        const desc = div.querySelector(".Description");
+        const btn = div.querySelector(".More_Details");
+
+        if (btn.innerText === "More details") {
+          desc.style.display = "block";
+          btn.innerText = "Less details";
+        } else {
+          desc.style.display = "none";
+          btn.innerText = "More details";
+        }
+      }
+
+      function Select_Preferences(ID_Name) {
+        const div = document.getElementById(ID_Name);
+        const button = div.querySelector(".Add_to_The_Preferences_List");
+        const caption = div.querySelector(".Image_Captions").innerText;
+
+        document.querySelectorAll(".Add_to_The_Preferences_List").forEach((btn) => {
+          btn.style.backgroundColor = "transparent";
+          btn.innerText = "Add to The Preferences List";
+        });
+
+        if (selectedDesign === caption) {
+          selectedDesign = "";
+        } else {
+          selectedDesign = caption;
+          button.style.backgroundColor = "green";
+          button.innerText = "Deselect the Preference";
+        }
+
+        document.getElementById("selection").value = selectedDesign;
+      }
+
+      document
+        .getElementById("chandelierForm")
+        .addEventListener("submit", function (e) {
+          if (!selectedDesign) {
+            e.preventDefault();
+            alert("⚠️ Please select a chandelier before submitting!");
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Castle Designers | Login</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Henny+Penny&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/images/logo.png" type="image/png" />
+
+    
+    <link rel="stylesheet" href="/css/loginbutton.css" />
+  </head>
+
+  <body>
+    <header>
+      <h2><a href="/">|CA𝕊TLΣ DE𝕊IGNΣR𝕊|</a></h2>
+      <h4>------BE$T IN TOWN------</h4>
+      
+      <hr />
+    </header>
+
+   
+    <div class="form-container">
+      <form
+        class="main"
+        action="/login"
+        method="post"
+        onsubmit="return validateForm()"
+      >
+        <h3>Login to continue</h3>
+
+        <div class="input-group">
+          <ion-icon name="mail-outline"></ion-icon>
+          <input
+            type="email"
+            id="usn"
+            name="Email_ID"
+            placeholder="Enter your email id"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <ion-icon name="lock-closed"></ion-icon>
+          <input
+            type="password"
+            id="psd"
+            name="Password"
+            placeholder="Password"
+            minlength="6"
+            required
+          />
+        </div>
+
+        <div class="options">
+          <input type="checkbox" id="cb" onclick="showPassword()" />
+          <label for="cb">Show Password</label>
+        </div>
+
+        <input type="submit" id="submit" value="Login" />
+
+        <h5>
+          Don't have an account?
+          <a href="/signup" class="sign">Sign up here.</a>
+        </h5>
+      </form>
+    </div>
+
+    <% if (typeof messagedata !== "undefined" && messagedata.message) { %>
+    <script>
+      alert("<%= messagedata.message %>");
+    </script>
+    <% } %>
+
+    
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+
+   
+    <script>
+      function showPassword() {
+        const psd = document.getElementById("psd");
+        psd.type = psd.type === "password" ? "text" : "password";
+      }
+
+      function validateForm() {
+        const email = document.getElementById("usn").value.trim();
+        const pass = document.getElementById("psd").value.trim();
+        if (!email || !pass) {
+          alert("Please enter both email and password");
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>

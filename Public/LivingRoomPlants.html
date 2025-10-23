@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="plants.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Castle Designers | Living Room Indoor Plants</title>
+    <link rel="icon" href="new2.png" type="image" />
+  </head>
+
+  <body>
+    <hr />
+    <h2>|CA𝕊TLΣ DE𝕊IGNΣR𝕊|<br /></h2>
+    <h4>------BE$T IN TOWN------</h4>
+
+    <h1 class="Page_Title">LIVING ROOM INDOOR PLANTS</h1>
+
+
+    <form action="/saveDesign" method="POST" id="plantForm">
+      <input type="hidden" name="room" value="Living Room" />
+      <input type="hidden" name="category" value="Indoor Plants" />
+      <input type="hidden" id="selection" name="selection" value="" />
+
+      <button type="submit" class="Submit_Your_Choices">
+        SUBMIT YOUR CHOICES
+      </button>
+    </form>
+
+    
+     <div class="design-container">
+      <div class="Interior_Design_Options" id="Snake_plant">
+        <img src="Snake_plant.avif" alt="Snake Plant" />
+        <h1 class="Image_Captions">Snake Plant</h1>
+        <p class="Description">
+          The snake plant (Mother-in-law's tongue) is a hardy succulent that
+          thrives in low light and needs minimal watering. Perfect for modern
+          dining spaces.
+        </p>
+        <div class="button-row">
+          <button
+            class="Add_to_The_Preferences_List"
+            onclick="Select_Preferences('Snake_plant')"
+          >
+            Add to The Preferences List
+          </button>
+          <button class="More_Details" onclick="display('Snake_plant');">
+            More details
+          </button>
+        </div>
+      </div>
+
+      <div class="Interior_Design_Options" id="Aloe_vera">
+        <img src="Aloe_vera_plant.avif" alt="Aloe Vera" />
+        <h1 class="Image_Captions">Aloe Vera</h1>
+        <p class="Description">
+          Aloe vera is a low-maintenance, air-purifying plant that also provides
+          healing gel. It fits beautifully in warm, sunlit corners of dining
+          rooms.
+        </p>
+        <div class="button-row">
+          <button
+            class="Add_to_The_Preferences_List"
+            onclick="Select_Preferences('Aloe_vera')"
+          >
+            Add to The Preferences List
+          </button>
+          <button class="More_Details" onclick="display('Aloe_vera');">
+            More details
+          </button>
+        </div>
+      </div>
+
+      <div class="Interior_Design_Options" id="Peace_lily">
+        <img src="peace_lily.avif" alt="Peace Lily" />
+        <h1 class="Image_Captions">Peace Lily</h1>
+        <p class="Description">
+          Peace lilies bring elegance with glossy leaves and white blooms. They
+          clean the air and add a calm, graceful vibe to your dining area.
+        </p>
+        <div class="button-row">
+          <button
+            class="Add_to_The_Preferences_List"
+            onclick="Select_Preferences('Peace_lily')"
+          >
+            Add to The Preferences List
+          </button>
+          <button class="More_Details" onclick="display('Peace_lily');">
+            More details
+          </button>
+        </div>
+      </div>
+    </div>
+
+    
+    <script>
+      let selectedDesign = "";
+
+      function display(ID_Name) {
+        const div = document.getElementById(ID_Name);
+        const desc = div.querySelector(".Description");
+        const btn = div.querySelector(".More_Details");
+
+        if (btn.innerText === "More details") {
+          desc.style.display = "block";
+          btn.innerText = "Less details";
+        } else {
+          desc.style.display = "none";
+          btn.innerText = "More details";
+        }
+      }
+
+      function Select_Preferences(ID_Name) {
+        const div = document.getElementById(ID_Name);
+        const button = div.querySelector(".Add_to_The_Preferences_List");
+        const caption = div.querySelector(".Image_Captions").innerText;
+
+        document.querySelectorAll(".Add_to_The_Preferences_List").forEach((btn) => {
+          btn.style.backgroundColor = "transparent";
+          btn.innerText = "Add to The Preferences List";
+        });
+
+        if (selectedDesign === caption) {
+          selectedDesign = "";
+        } else {
+          selectedDesign = caption;
+          button.style.backgroundColor = "green";
+          button.innerText = "Deselect the Preference";
+        }
+
+        document.getElementById("selection").value = selectedDesign;
+      }
+
+      document
+        .getElementById("plantForm")
+        .addEventListener("submit", function (e) {
+          if (!selectedDesign) {
+            e.preventDefault();
+            alert("⚠️ Please select a plant before submitting!");
+          }
+        });
+    </script>
+  </body>
+</html>

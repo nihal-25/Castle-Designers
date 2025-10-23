@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="Furniture.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Castle Designers | Bed Room Furniture</title>
+    <link rel="icon" href="new2.png" type="image" />
+  </head>
+
+  <body>
+    <hr />
+    <h2>|CA𝕊TLΣ DE𝕊IGNΣR𝕊|<br /></h2>
+    <h4>------BE$T IN TOWN------</h4>
+
+    <h1 class="Page_Title">BED ROOM FURNITURE</h1>
+
+    
+    <form action="/saveDesign" method="POST" id="furnitureForm">
+      <input type="hidden" name="room" value="Bed Room" />
+      <input type="hidden" name="category" value="Furniture" />
+      <input type="hidden" id="selection" name="selection" value="" />
+
+      <button type="submit" class="Submit_Your_Choices">
+        SUBMIT YOUR CHOICES
+      </button>
+    </form>
+
+  
+    <div class="design-container">
+      <div class="Interior_Design_Options" id="Scandinavian_furniture">
+        <img src="Scandinavian_Furniture.avif" alt="Scandinavian Furniture" />
+        <h1 class="Image_Captions">Scandinavian Furniture</h1>
+        <p class="Description">
+          Scandinavian-style furniture is minimalist and practical, using
+          natural wood, leather, and linen to create a warm Nordic aesthetic.
+        </p>
+        <div class="button-row">
+          <button
+            class="Add_to_The_Preferences_List"
+            onclick="Select_Preferences('Scandinavian_furniture')"
+          >
+            Add to The Preferences List
+          </button>
+          <button
+            class="More_Details"
+            onclick="display('Scandinavian_furniture');"
+          >
+            More details
+          </button>
+        </div>
+      </div>
+
+      <div class="Interior_Design_Options" id="Modern_furniture">
+        <img src="Modern_furniture.avif" alt="Modern Furniture" />
+        <h1 class="Image_Captions">Modern Furniture</h1>
+        <p class="Description">
+          Modern furniture features clean lines, geometric shapes, and
+          functionality—perfect for stylish and space-efficient living rooms.
+        </p>
+        <div class="button-row">
+          <button
+            class="Add_to_The_Preferences_List"
+            onclick="Select_Preferences('Modern_furniture')"
+          >
+            Add to The Preferences List
+          </button>
+          <button
+            class="More_Details"
+            onclick="display('Modern_furniture');"
+          >
+            More details
+          </button>
+        </div>
+      </div>
+
+      <div class="Interior_Design_Options" id="Rustic_furniture">
+        <img src="Rustic_Furniture.avif" alt="Rustic Furniture" />
+        <h1 class="Image_Captions">Rustic Furniture</h1>
+        <p class="Description">
+          Rustic furniture emphasizes raw wood, handcrafted textures, and warm
+          tones—adding comfort and natural charm to your home.
+        </p>
+        <div class="button-row">
+          <button
+            class="Add_to_The_Preferences_List"
+            onclick="Select_Preferences('Rustic_furniture')"
+          >
+            Add to The Preferences List
+          </button>
+          <button
+            class="More_Details"
+            onclick="display('Rustic_furniture');"
+          >
+            More details
+          </button>
+        </div>
+      </div>
+    </div>
+
+    
+    <script>
+      let selectedDesign = "";
+
+      function display(ID_Name) {
+        const div = document.getElementById(ID_Name);
+        const desc = div.querySelector(".Description");
+        const btn = div.querySelector(".More_Details");
+
+        if (btn.innerText === "More details") {
+          desc.style.display = "block";
+          btn.innerText = "Less details";
+        } else {
+          desc.style.display = "none";
+          btn.innerText = "More details";
+        }
+      }
+
+      function Select_Preferences(ID_Name) {
+        const div = document.getElementById(ID_Name);
+        const button = div.querySelector(".Add_to_The_Preferences_List");
+        const caption = div.querySelector(".Image_Captions").innerText;
+
+        document.querySelectorAll(".Add_to_The_Preferences_List").forEach((btn) => {
+          btn.style.backgroundColor = "transparent";
+          btn.innerText = "Add to The Preferences List";
+        });
+
+        if (selectedDesign === caption) {
+          selectedDesign = "";
+        } else {
+          selectedDesign = caption;
+          button.style.backgroundColor = "green";
+          button.innerText = "Deselect the Preference";
+        }
+
+        document.getElementById("selection").value = selectedDesign;
+      }
+
+      document
+        .getElementById("furnitureForm")
+        .addEventListener("submit", function (e) {
+          if (!selectedDesign) {
+            e.preventDefault();
+            alert("⚠️ Please select a furniture style before submitting!");
+          }
+        });
+    </script>
+  </body>
+</html>

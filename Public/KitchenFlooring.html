@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="Flooring.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Castle Designers | Kitchen Flooring</title>
+    <link rel="icon" href="new2.png" type="image" />
+  </head>
+  <body>
+    <hr />
+    <h2>|CA𝕊TLΣ DE𝕊IGNΣR𝕊|<br /></h2>
+    <h4>------BE$T IN TOWN------</h4>
+
+    <h1 class="Page_Title">KITCHEN FLOORING</h1>
+
+    <!-- ✅ FORM for submitting selected design -->
+    <form action="/saveDesign" method="POST" id="flooringForm">
+      <input type="hidden" name="room" value="Kitchen" />
+      <input type="hidden" name="category" value="Flooring" />
+      <input type="hidden" id="selection" name="selection" value="" />
+      <button type="submit" class="Submit_Your_Choices">
+        SUBMIT YOUR CHOICES
+      </button>
+    </form>
+
+    <!-- ✅ Flooring Options -->
+    <div class="design-container">
+      <div class="Interior_Design_Options" id="Hardwood_Flooring">
+        <img src="Hardwood_Flooring.avif" alt="Hardwood Flooring" />
+        <h1 class="Image_Captions">Hardwood Flooring</h1>
+        <p class="Description">
+          Hardwood Flooring is made from solid pieces of oak, cherry, or walnut,
+          offering timeless beauty and strength. Installed by nailing wood to a
+          wooden subfloor.
+        </p>
+        <div class="button-row">
+          <button
+            class="Add_to_The_Preferences_List"
+            onclick="Select_Preferences('Hardwood_Flooring')"
+          >
+            Add to The Preferences List
+          </button>
+          <button class="More_Details" onclick="display('Hardwood_Flooring');">
+            More details
+          </button>
+        </div>
+      </div>
+
+      <div class="Interior_Design_Options" id="Carpet_Flooring">
+        <img src="Carpet_Flooring.avif" alt="Carpet Flooring" />
+        <h1 class="Image_Captions">Carpet Flooring</h1>
+        <p class="Description">
+          Carpet flooring adds warmth and comfort. Wool resists stains, nylon is
+          recyclable, and acrylic carpets resist mildew and insects.
+        </p>
+        <div class="button-row">
+          <button
+            class="Add_to_The_Preferences_List"
+            onclick="Select_Preferences('Carpet_Flooring')"
+          >
+            Add to The Preferences List
+          </button>
+          <button class="More_Details" onclick="display('Carpet_Flooring');">
+            More details
+          </button>
+        </div>
+      </div>
+
+      <div class="Interior_Design_Options" id="Marble_Flooring">
+        <img src="Marble_Flooring.avif" alt="Marble Flooring" />
+        <h1 class="Image_Captions">Marble Flooring</h1>
+        <p class="Description">
+          Elegant and durable, marble flooring comes in luxurious colors like
+          beige, black, and gold, making it perfect for a premium dining room.
+        </p>
+        <div class="button-row">
+          <button
+            class="Add_to_The_Preferences_List"
+            onclick="Select_Preferences('Marble_Flooring')"
+          >
+            Add to The Preferences List
+          </button>
+          <button class="More_Details" onclick="display('Marble_Flooring');">
+            More details
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let selectedDesign = "";
+
+      function display(ID_Name) {
+        const div = document.getElementById(ID_Name);
+        const desc = div.querySelector(".Description");
+        const btn = div.querySelector(".More_Details");
+
+        if (btn.innerText === "More details") {
+          desc.style.display = "block";
+          btn.innerText = "Less details";
+        } else {
+          desc.style.display = "none";
+          btn.innerText = "More details";
+        }
+      }
+
+      function Select_Preferences(ID_Name) {
+        const div = document.getElementById(ID_Name);
+        const button = div.querySelector(".Add_to_The_Preferences_List");
+        const caption = div.querySelector(".Image_Captions").innerText;
+
+        document.querySelectorAll(".Add_to_The_Preferences_List").forEach((btn) => {
+          btn.style.backgroundColor = "transparent";
+          btn.innerText = "Add to The Preferences List";
+        });
+
+        if (selectedDesign === caption) {
+          selectedDesign = "";
+        } else {
+          selectedDesign = caption;
+          button.style.backgroundColor = "green";
+          button.innerText = "Deselect the Preference";
+        }
+
+        document.getElementById("selection").value = selectedDesign;
+      }
+
+      document
+        .getElementById("flooringForm")
+        .addEventListener("submit", function (e) {
+          if (!selectedDesign) {
+            e.preventDefault();
+            alert("⚠️ Please select a flooring option before submitting!");
+          }
+        });
+    </script>
+  </body>
+</html>

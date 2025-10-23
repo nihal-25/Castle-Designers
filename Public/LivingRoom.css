@@ -1,0 +1,171 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://plus.unsplash.com/premium_photo-1661962952618-031d218dd040?q=80&w=3777&auto=format&fit=crop&ixlib=rb-4.0.3")
+      center/cover no-repeat fixed;
+  color: #fff;
+  
+}
+
+
+h2 {
+  font-family: "Henny Penny", cursive;
+  letter-spacing: 4px;
+  text-shadow: 0 0 10px orange;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+h4 {
+  letter-spacing: 8px;
+  margin-bottom: 50px;
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+hr {
+  width: 90%;
+  border-color: orange;
+  margin-bottom: 20px;
+}
+ li{
+  margin: auto;
+  position: relative;
+  bottom: 60px;
+  left: 600px;
+  padding: 0px 10px;
+  display: inline;
+}
+li:hover {
+  border-radius: 10px;
+  border: solid orange;
+  text-shadow: 0 0 10px white;
+  border-width: 5px;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  letter-spacing: 2.5px;
+  transition: 0.5s;
+}
+ul {
+  padding: 0;
+}
+ul li {
+  position: relative;
+  display: inline;
+}
+li ul li{
+display: block;
+}
+li ul
+{
+display: none;
+}
+li:hover ul{
+display: block;
+position: absolute;
+top: 85px;
+left: -600px;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#Heading {
+  font-size: 28px;
+  color: #fff;
+  text-shadow: 0 0 15px orange;
+  margin-bottom: 50px;
+  animation: slideInTop 2s ease;
+  text-align: center;
+}
+
+#Heading::first-letter {
+  color: orange;
+}
+
+
+#Interior_Design_Options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+}
+
+
+.design-card {
+  width: 320px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid orange;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.2);
+  transition: 0.4s;
+  overflow: hidden;
+  animation: slideInTop 1s;
+}
+
+.design-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 165, 0, 0.5);
+}
+
+
+.design-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+
+.Image_caption {
+  font-size: 20px;
+  color: #fff;
+  text-shadow: 0 0 10px orange;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+.Image_caption a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.Image_caption a:hover {
+  text-decoration: underline;
+  color: orange;
+}
+
+
+@keyframes slideInTop {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+@media (max-width: 768px) {
+  #Heading {
+    font-size: 22px;
+  }
+
+  .design-card {
+    width: 90%;
+  }
+
+  #Interior_Design_Options {
+    gap: 20px;
+  }
+}

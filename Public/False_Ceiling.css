@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://plus.unsplash.com/premium_photo-1661962952618-031d218dd040?q=80&w=3777&auto=format&fit=crop&ixlib=rb-4.0.3")
+      center/cover no-repeat fixed;
+  color: white;
+  
+}
+
+h2 {
+  font-size: 36px;
+  letter-spacing: 4px;
+  text-shadow: 0 0 10px orange;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+h4 {
+  letter-spacing: 8px;
+  font-weight: 400;
+  margin-bottom: 40px;
+  margin-left: 5px;
+}
+
+.Page_Title {
+  font-size: 40px;
+  text-shadow: 0 0 15px orange;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.Page_Title::first-letter {
+  color: orange;
+}
+
+hr {
+  border-color: orange;
+  margin: 0 60px;
+}
+
+.Submit_Your_Choices {
+  background: transparent;
+  border: 3px solid orange;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  padding: 12px 25px;
+  margin-bottom: 30px;
+  transition: 0.3s;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.Submit_Your_Choices:hover {
+  background: orange;
+  box-shadow: 0 0 15px orange;
+}
+
+
+.design-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 30px;
+}
+
+
+.Interior_Design_Options {
+  width: 420px;
+  background: white;
+  color: black;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.3);
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 60px;
+  transition: 0.3s;
+}
+
+.Interior_Design_Options:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(255, 165, 0, 0.5);
+}
+
+
+.Interior_Design_Options img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+
+.Image_Captions {
+  font-size: 22px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+
+.Description {
+  display: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  text-align: justify;
+}
+
+
+.button-group {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+}
+
+.Add_to_The_Preferences_List,
+.More_Details {
+  font-weight: 600;
+  background: transparent;
+  border: 3px solid orange;
+  border-radius: 25px;
+  width: 160px;
+  height: 45px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.Add_to_The_Preferences_List:hover,
+.More_Details:hover {
+  background: orange;
+  box-shadow: 0 0 10px orange;
+}
+
+
+@keyframes slideInTop {
+  0% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
