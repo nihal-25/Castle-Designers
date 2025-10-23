@@ -7,7 +7,7 @@ import session from "express-session";
 import { fileURLToPath } from "url";
 import User from "./models/User.js";
 import Design from "./models/Design.js";
-
+import { connectDB } from "./db.js";
 dotenv.config();
 
 const app = express();
@@ -56,12 +56,7 @@ app.use(
 
 
 
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB Connected"))
-  .catch((err) =>
-    console.error("❌ MongoDB Connection Error:", err.message)
-  );
+await connectDB();
 
 
 app.get("/", (req, res) => {
