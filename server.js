@@ -40,6 +40,8 @@ app.use((req, res, next) => {
 });
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.static(path.join(__dirname, "public")));
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -234,7 +236,7 @@ app.get("/logout", (req, res) => {
     res.redirect("/");
   });
 });
-app.use(express.static(path.join(__dirname, "public")));
+
 
 app.listen(PORT, () =>
   console.log(`🚀 Server running at http://localhost:${PORT}`)
