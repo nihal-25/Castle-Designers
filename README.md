@@ -5,6 +5,12 @@ Users can sign up, log in, explore different rooms, select designs (like floorin
 
 ---
 
+
+## 📸 Demo
+👉 [https://castle-designers.vercel.app](https://castle-designers.vercel.app)
+
+---
+
 ## 🚀 Features
 
 - 🔐 **User Authentication** – Secure signup and login using `bcrypt` hashing  
@@ -73,41 +79,6 @@ Visit:
 
 ---
 
-## ☁️ Deploying to Vercel
-
-### 1️⃣ Push your project to GitHub
-```bash
-git add .
-git commit -m "Deploy-ready version"
-git push origin main
-```
-
-### 2️⃣ Go to [Vercel](https://vercel.com/)
-- Import your GitHub repo.  
-- Set **Framework Preset** to **Other**.  
-- Vercel automatically detects `server.js` and `vercel.json`.
-
-### 3️⃣ Add Environment Variables in Vercel
-```
-MONGO_URI        your_mongodb_uri
-SESSION_SECRET   your_secret_key
-```
-
-### 4️⃣ vercel.json Configuration
-```json
-{
-  "version": 2,
-  "builds": [
-    { "src": "server.js", "use": "@vercel/node" }
-  ],
-  "routes": [
-    { "src": "/(.*)", "dest": "server.js" }
-  ]
-}
-```
-
----
-
 ## 💻 Technologies Used
 
 | Category | Tools |
@@ -131,40 +102,9 @@ NODE_ENV=production
 
 ---
 
-## 🧠 Developer Notes
-
-- All interactive forms (like `saveDesign`) must include:
-  ```js
-  credentials: 'include'
-  ```
-  in fetch requests to ensure session cookies are passed.
-
-- When using HTML `<form>` submissions, add:
-  ```html
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
-  ```
-
----
-
-## 🧩 Common Issues
-
-| Issue | Solution |
-|-------|-----------|
-| **“Please log in to save your designs” on Vercel** | Ensure cookies are configured with `sameSite: "none"` and `secure: true` |
-| **CSS or image 404s on Vercel** | Ensure all assets are inside `/public` |
-| **Session not persisting** | Check MongoDB `sessions` collection and `SESSION_SECRET` |
-| **White screen on Vercel deploy** | Check `vercel.json` routing and `server.js` path correctness |
-
----
-
-## 📸 Demo
-👉 [https://castle-designers.vercel.app](https://castle-designers.vercel.app)
-
----
-
 ## 👨‍💻 Author
 
 **Nihal Manjunath**  
-💼 Full-Stack Developer | Passionate about UI/UX + Backend Systems  
-📧 [your.email@example.com]  
-🌐 [https://github.com/nihalmanjunath](https://github.com/nihalmanjunath)
+  
+📧 [nihal6mn@example.com]  
+🌐 [https://www.nihalmanjunath.com/](nihalmanjunath.com)
