@@ -7,6 +7,7 @@ import session from "express-session";
 import { fileURLToPath } from "url";
 import User from "./models/User.js";
 import Design from "./models/Design.js";
+import MongoStore from "connect-mongo";
 import { connectDB } from "./db.js";
 dotenv.config();
 
@@ -51,6 +52,15 @@ app.use(
     secret: process.env.SESSION_SECRET || "castle_secret_123",
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI,
+      ttl: 14 * 24 * 60 * 60, // session expires in 14 days
+    }),
+    cookie: {
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      httpOnly: true,
+    },
   })
 );
 
