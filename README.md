@@ -106,5 +106,5 @@ NODE_ENV=production
 
 **Nihal Manjunath**  
   
-📧 [nihal6mn@example.com]  
+📧 [nihal6mn@gmail.com]  
 🌐 [https://www.nihalmanjunath.com/](nihalmanjunath.com)
