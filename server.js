@@ -1,4 +1,4 @@
-// server.js
+
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
@@ -10,24 +10,22 @@ import cors from "cors";
 import { fileURLToPath } from "url";
 import User from "./models/User.js";
 import Design from "./models/Design.js";
-import { connectDB } from "./db.js"; // you already have this
+import { connectDB } from "./db.js"; 
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// __dirname setup for ES modules
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// If your app is behind a proxy (Vercel, Heroku), enable trust proxy
+
 if (process.env.NODE_ENV === "production") {
-  app.set("trust proxy", 1); // trust first proxy
+  app.set("trust proxy", 1); 
 }
 
-// CORS: allow your vercel origin and localhost (for local dev).
-// You can set ORIGIN env var to your deployed origin e.g. "https://your-app.vercel.app"
 const allowedOrigins = [
   process.env.ORIGIN || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null),
   "http://localhost:3000",
@@ -40,30 +38,29 @@ app.use(
   })
 );
 
-// Security / caching headers for pages that must not be cached
+
 app.use((req, res, next) => {
   res.set("Cache-Control", "no-store, no-cache, must-revalidate, private");
   next();
 });
 
-// Body parser
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json()); // in case future fetch POSTs JSON
 
-// Serve static files from /public
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); 
+
 app.use(express.static(path.join(__dirname, "public")));
 
-// Views (EJS)
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-// Session config
+
 const isProd = process.env.NODE_ENV === "production";
 const sessionCookie = {
-  secure: isProd, // cookie only sent over HTTPS in production
+  secure: isProd, 
   httpOnly: true,
-  maxAge: 24 * 60 * 60 * 1000, // 1 day
-  sameSite: isProd ? "none" : "lax", // NONE required for cross-site cookies on HTTPS
+  maxAge: 24 * 60 * 60 * 1000, 
+  sameSite: isProd ? "none" : "lax", 
 };
 
 app.use(
@@ -74,13 +71,13 @@ app.use(
     store: MongoStore.create({
       mongoUrl: process.env.MONGO_URI,
       collectionName: "sessions",
-      ttl: 24 * 60 * 60, // 1 day in seconds
+      ttl: 24 * 60 * 60, 
     }),
     cookie: sessionCookie,
   })
 );
 
-// Helper middlewares
+
 function requireLogin(req, res, next) {
   if (!req.session.userId) {
     return res.send(`
@@ -99,12 +96,12 @@ function redirectIfLoggedIn(req, res, next) {
   next();
 }
 
-// Connect DB and start server inside async function
+
 async function start() {
   try {
-    // connectDB() is your own utility. If not present, fallback to mongoose.connect
+   
     if (typeof connectDB === "function") {
-      await connectDB(); // expected to use process.env.MONGO_URI internally
+      await connectDB();
       console.log("✅ MongoDB (via connectDB) connected");
     } else {
       await mongoose.connect(process.env.MONGO_URI);
@@ -112,11 +109,10 @@ async function start() {
     }
   } catch (err) {
     console.error("❌ MongoDB Connection Error:", err.message);
-    // still start server so error pages can show? you may want to exit in prod
-    // process.exit(1);
+   
   }
 
-  // ---------------- ROUTES ----------------
+
 
   app.get("/", (req, res) => {
     if (req.session.userId) {
@@ -129,7 +125,7 @@ async function start() {
     res.sendFile(path.join(__dirname, "public", "YourChoices.html"));
   });
 
-  // Signup + Login
+  
   app.get("/signup", redirectIfLoggedIn, (req, res) => {
     res.render("Signup", { messagedata: {} });
   });
@@ -182,7 +178,7 @@ async function start() {
     }
   });
 
-  // Save design
+ 
   app.post("/saveDesign", async (req, res) => {
     try {
       const { room, category, selection } = req.body;
@@ -232,7 +228,7 @@ async function start() {
     }
   });
 
-  // Get user choices (used by YourChoices front-end)
+  
   app.get("/getUserChoices", async (req, res) => {
     try {
       if (!req.session.userId) return res.json([]);
@@ -244,14 +240,14 @@ async function start() {
     }
   });
 
-  // Logout
+ 
   app.get("/logout", (req, res) => {
     req.session.destroy(() => {
       res.redirect("/");
     });
   });
 
-  // start server
+ 
   app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));
 }
 
