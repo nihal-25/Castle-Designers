@@ -52,8 +52,20 @@ app.use(
     secret: process.env.SESSION_SECRET || "castle_secret_123",
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI,
+      collectionName: "sessions",
+      ttl: 24 * 60 * 60, // 1 day
+    }),
+    cookie: {
+      secure: process.env.NODE_ENV === "production", // Only secure on HTTPS
+      maxAge: 24 * 60 * 60 * 1000, // 1 day
+      httpOnly: true,
+      sameSite: "lax",
+    },
   })
 );
+
 
 
 
