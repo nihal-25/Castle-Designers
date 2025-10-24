@@ -124,7 +124,7 @@
      
       async function loadAndRenderChoices() {
         try {
-          const res = await fetch("/getUserChoices");
+          const res = await fetch('/getUserChoices', { credentials: 'include' });
           if (!res.ok) {
             
             if (res.status === 401) {
