@@ -27,30 +27,22 @@
     <div class="inputs">
       <h2 style="color:black">SIGN UP</h2>
 
-     <div class="field">
-  <input type="text" id="fname" name="name" placeholder="Name" required>
-  <ion-icon name="person"></ion-icon>
-</div>
+      <ion-icon name="person"></ion-icon>
+      <br><input type="text" id="fname" name="name" maxlength="40" placeholder="Name" required><br>
 
-<div class="field">
-  <input type="email" id="email" name="email" placeholder="Email" required>
-  <ion-icon name="mail"></ion-icon>
-</div>
+      <ion-icon name="mail"></ion-icon>
+      <br><input type="email" id="email" name="email" placeholder="Email" required><br>
 
-<div class="field">
-  <input type="text" id="contactno" name="contactNumber" placeholder="Phone Number" maxlength="10" required>
-  <ion-icon name="call"></ion-icon>
-</div>
+      <ion-icon name="call"></ion-icon>
+      <br><input type="text" id="contactno" name="contactNumber" placeholder="Phone Number" maxlength="10"
+                 pattern="[0-9]{10}" title="Enter a valid 10-digit number" required><br>
 
-<div class="field">
-  <input type="password" id="set" name="password" placeholder="Set password" required>
-  <ion-icon name="key"></ion-icon>
-</div>
+      <ion-icon name="key"></ion-icon>
+      <br><input type="password" id="set" name="password" placeholder="Set password" minlength="6" required><br>
 
-<div class="field">
-  <input type="password" id="confirm" name="confirmPassword" placeholder="Confirm password" required>
-  <ion-icon name="eye"></ion-icon>
-</div>
+      <ion-icon name="eye"></ion-icon>
+      <br><input type="password" id="confirm" name="confirmPassword" placeholder="Confirm password" minlength="6" required><br><br>
+
       <h2 id="Passwords_do_not_match"></h2>
       <br><br>
       
