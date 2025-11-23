@@ -119,6 +119,19 @@ text-decoration: none;
 color: #fff;
 }
 
+@media (min-width: 769px) {
+
+  /* Move logout button up */
+  .logout-top {
+    top: 50px !important;    /* was 72px */
+  }
+
+  /* Move main content up */
+  main.yc-main {
+    padding-top: 80px !important;   /* default was 120px */
+  }
+}
+
 
 /* ==========================================================
    📱 MOBILE FIX (Desktop untouched)
