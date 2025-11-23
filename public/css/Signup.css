@@ -240,4 +240,32 @@ ul li {
     font-size: 14px !important;
     margin-top: 10px !important;
   }
+  .field {
+  position: relative;
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+/* Input box */
+.field input {
+  width: 100% !important;
+  height: 45px !important;
+  font-size: 16px !important;
+  padding-left: 10px !important;
+  padding-right: 45px !important;
+  border: solid #999 1px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.5);
+}
+
+/* Icon inside the input container */
+.field ion-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px !important;
+  color: black;
+  pointer-events: none;
+}
 }
