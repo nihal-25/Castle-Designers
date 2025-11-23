@@ -374,72 +374,76 @@ a {
    ===================================================================== */
 @media (max-width: 768px) {
 
-  /* RESET absolute desktop positions */
-  h1, p, h2, h4 {
-    position: relative !important;
-    left: 0 !important;
-    top: 0 !important;
-    transform: none !important;
-    width: 100%;
-    text-align: center;
+  /* ===== CENTER ELEMENTS & KEEP ANIMATION ===== */
+  header h2, header h4, h1, p {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    text-align: center !important;
+    width: max-content;
   }
 
-  /* RESTORE ANIMATIONS for mobile */
-  h1 {
-    animation: slideInTop 3s 1 !important;
-    font-size: 32px !important;
-    margin-top: 120px;
-  }
-
-  p {
-    animation: slideInBottom 3s 1 !important;
-    font-size: 17px !important;
-    margin-top: 10px;
-  }
-
-  /* FIX CASTLE DESIGNERS animation */
+  /* ---- CASTLE DESIGNERS ---- */
   header h2 {
-    animation: Pop 1s 2 !important;
+    top: 20px !important;
     font-size: 26px !important;
-    margin-top: 20px;
+    animation: Pop 1s 2 !important;
   }
 
-  /* MOVE "BEST IN TOWN" BELOW TITLE */
+  /* ---- BEST IN TOWN ---- */
   header h4 {
-    margin-top: 8px !important;
+    top: 70px !important;
     font-size: 12px !important;
     letter-spacing: 6px !important;
   }
 
   hr { display: none; }
 
-  /* HIDE OLD NAV ONLY */
-  nav ul:not(.mobile-dropdown ul) {
-    display: none !important;
+  /* ---- MAIN HEADING ---- */
+  h1 {
+    top: 150px !important;
+    font-size: 34px !important;
+    animation: slideInTop 3s 1 !important;
   }
 
-  /* HAMBURGER ICON */
+  /* ---- SUBTEXT ---- */
+  p {
+    top: 225px !important;
+    font-size: 17px !important;
+    animation: slideInBottom 3s 1 !important;
+  }
+
+  /* ======================================================
+       HAMBURGER MENU (SHOW ITEMS BELOW ICON)
+     ====================================================== */
+
+  /* SHOW hamburger icon */
   .mobile-menu-icon {
     display: block;
     position: absolute;
     right: 20px;
     top: 25px;
-    z-index: 999;
     font-size: 32px;
     color: white;
     cursor: pointer;
+    z-index: 9999;
   }
 
-  /* DROPDOWN */
+  /* HIDE original navbar */
+  nav > ul {
+    display: none !important;
+  }
+
+  /* DROPDOWN container */
   .mobile-dropdown {
     display: none;
     position: absolute;
     right: 20px;
-    top: 60px;
+    top: 70px;
     background: rgba(0,0,0,0.85);
-    width: 160px;
-    border-radius: 10px;
+    width: 170px;
     padding: 12px;
+    border-radius: 10px;
     z-index: 99999;
   }
 
@@ -447,32 +451,33 @@ a {
     display: block !important;
   }
 
+  /* Dropdown items */
   .mobile-dropdown ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: block !important;
   }
 
   .mobile-dropdown ul li {
-    padding: 10px 0;
-    text-align: left;
+    padding: 10px 5px;
   }
 
   .mobile-dropdown ul li a {
     color: white;
-    text-decoration: none;
     font-size: 15px;
+    text-decoration: none;
   }
 
-  /* BUTTONS IN 2×2 GRID */
+  /* ======================================================
+       BUTTONS 2×2 GRID
+     ====================================================== */
   .buttons {
-    margin-top: 40px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 18px;
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 330px auto 0;
   }
 
   .buttons a {
