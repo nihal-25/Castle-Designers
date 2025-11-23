@@ -32,16 +32,18 @@
     <h2><a href="/Interior.html">|CA𝕊TLΣ DE𝕊IGNΣR𝕊|</a><br /></h2>
     <h4>------BE$T IN TOWN------</h4>
 
-     <nav>
-        <ul>
-          <li><a href="/YourChoices.html">YOUR CHOICES</a></li>
-          <li><a href="/LivingRoom.html">LIVING ROOM</a></li>
-          <li><a href="/KitchenRoom.html">KITCHEN</a></li>
-          <li><a href="/BedRoom.html">BEDROOM</a> </li>
-          <li><a href="/Dining.html">DINING</a></li>
-          <li><a href="/contactus.html">CONTACT US</a></li>
-        </ul>
-      </nav>
+    <button id="menu-btn" class="mobile-menu-btn">☰</button>
+
+     <nav id="navbar">
+  <ul class="nav-links">
+    <li><a href="/YourChoices.html">YOUR CHOICES</a></li>
+    <li><a href="/LivingRoom.html">LIVING ROOM</a></li>
+    <li><a href="/KitchenRoom.html">KITCHEN</a></li>
+    <li><a href="/BedRoom.html">BEDROOM</a></li>
+    <li><a href="/Dining.html">DINING</a></li>
+    <li><a href="/contactus.html">CONTACT US</a></li>
+  </ul>
+</nav>
     
     <button class="logout-top" id="logoutBtn">Logout</button>
 
@@ -194,5 +196,14 @@
     
       loadAndRenderChoices();
     </script>
+    <script>
+  const menuBtn = document.getElementById("menu-btn");
+  const navbar = document.getElementById("navbar");
+
+  menuBtn.addEventListener("click", () => {
+    navbar.classList.toggle("open");
+  });
+</script>
+
   </body>
 </html>
