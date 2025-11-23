@@ -13,8 +13,10 @@
       <h2>|CA𝕊TLΣ DE𝕊IGNΣR𝕊|<br /></h2>
       <h4>------BE$T IN TOWN------</h4>
 
-      <nav>
-        <ul>
+       <button class="mobile-menu-btn" id="menuToggle">☰</button>
+
+    <nav id="navbar">
+    <ul class="nav-links">
           <li><a href="/YourChoices.html">YOUR CHOICES</a></li>
           <li><a href="/LivingRoom.html">LIVING ROOM</a></li>
           <li><a href="/KitchenRoom.html">KITCHEN</a></li>
@@ -46,5 +48,13 @@
 <h1 class="Image_caption"><a href="KitchenPlants.html">Indoor Plants</a></h1>
 </div>
 </div>
+ <script>
+  const toggleBtn = document.getElementById("menuToggle");
+  const navbar = document.getElementById("navbar");
+
+  toggleBtn.addEventListener("click", () => {
+    navbar.classList.toggle("open");
+  });
+</script>
 </body>
 </html>
