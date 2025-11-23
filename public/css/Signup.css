@@ -67,29 +67,37 @@ form:hover {
   color: #303030;
   opacity: 1;
 }
-ion-icon {
-  color: #000000;
-  scale: 2;
-  cursor:grab;
+.field {
   position: relative;
-  top: 30px;
-  left: 180px;
+  width: 100%;
+  margin: 18px 0;
 }
-input {
-  background-color: rgba(180, 179, 179, 0.01);
-  width: 400px;
-  height: 40px;
-  font-size: 20px;
-  border: solid rgb(131, 130, 130) 2px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-}
-input:focus {
-  scale: 1.05;
+
+/* INPUT DESIGN */
+.field input {
+  width: 100%;
+  height: 45px;
+  font-size: 17px;
+  padding-left: 12px;
+  padding-right: 45px;
+  border: none;
+  border-bottom: 2px solid #888;
+  background: transparent;
   outline: none;
-  transition: 1s;
 }
+
+/* ICON INSIDE INPUT */
+.field ion-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  color: black;
+  pointer-events: none;
+}
+
+
 #signup {
   text-transform: capitalize;
   font-size: 18px;
@@ -202,28 +210,16 @@ ul li {
   }
 
   /* ------------ INPUT FIELDS (SMALLER) ------------ */
-  input {
-    width: 100% !important;
-    height: 38px !important;
-    font-size: 15px !important;
-    padding-left: 10px !important;
-    padding-right: 40px !important; /* space for icon */
+ .field input {
+    height: 40px;
+    font-size: 15px;
+    padding-right: 40px;
   }
 
-  /* ------------ ICONS (PROPER RIGHT ALIGNMENT) ------------ */
-  ion-icon {
-    position: absolute !important;
-    right: 28px !important;
-    font-size: 20px !important;
-    color: black;
+  .field ion-icon {
+    font-size: 20px;
+    right: 8px;
   }
-
-  /* INDIVIDUAL ICON ALIGNMENT */
-  .inputs ion-icon:nth-of-type(1) { top: 145px !important; }
-  .inputs ion-icon:nth-of-type(2) { top: 205px !important; }
-  .inputs ion-icon:nth-of-type(3) { top: 265px !important; }
-  .inputs ion-icon:nth-of-type(4) { top: 325px !important; }
-  .inputs ion-icon:nth-of-type(5) { top: 385px !important; }
 
   /* ------------ SIGNUP BUTTON ------------ */
   #signup {
@@ -240,32 +236,5 @@ ul li {
     font-size: 14px !important;
     margin-top: 10px !important;
   }
-  .field {
-  position: relative;
-  width: 100%;
-  margin-bottom: 18px;
-}
-
-/* Input box */
-.field input {
-  width: 100% !important;
-  height: 45px !important;
-  font-size: 16px !important;
-  padding-left: 10px !important;
-  padding-right: 45px !important;
-  border: solid #999 1px;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.5);
-}
-
-/* Icon inside the input container */
-.field ion-icon {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 22px !important;
-  color: black;
-  pointer-events: none;
-}
+  
 }
