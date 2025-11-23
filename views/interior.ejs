@@ -38,15 +38,20 @@
         <p>Luxury in each detail.</p>
       </section>
 
-      <nav>
-        <ul>
-          <li><a href="/login">YOUR CHOICES</a></li>
-          <li><a href="/login">LIVING ROOM</a></li>
-          <li><a href="/login">KITCHEN</a></li>
-          <li><a href="/login">BEDROOM</a> </li>
-          <li><a href="/login">DINING</a></li>
-        </ul>
-      </nav>
+     <!-- MOBILE HAMBURGER MENU -->
+<div class="mobile-menu-icon">
+  ☰
+</div>
+
+<nav class="mobile-dropdown">
+  <ul>
+    <li><a href="/login">YOUR CHOICES</a></li>
+    <li><a href="/login">LIVING ROOM</a></li>
+    <li><a href="/login">KITCHEN</a></li>
+    <li><a href="/login">BEDROOM</a></li>
+    <li><a href="/login">DINING</a></li>
+  </ul>
+</nav>
 
       <div class="buttons">
         <a href="/login" id="btn1">LOG IN</a>
@@ -61,5 +66,18 @@
         alert("<%= message %>");
       </script>
     <% } %>
+
+    <script>
+  // Mobile dropdown toggle
+  document.addEventListener("DOMContentLoaded", () => {
+    const icon = document.querySelector(".mobile-menu-icon");
+    const dropdown = document.querySelector(".mobile-dropdown");
+
+    icon.addEventListener("click", () => {
+      dropdown.classList.toggle("show");
+    });
+  });
+</script>
+
   </body>
 </html>
