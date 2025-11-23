@@ -37,29 +37,15 @@ hr {
   position: relative;
   top: 110px;
 }
-/* ============================
-   DESKTOP NAVBAR
-============================ */
-.nav-links {
-  list-style: none;
-  padding: 0;
-  margin-top: 40px;
-  text-align: center;
+li{
+  margin: auto;
+  position: relative;
+  bottom: 60px;
+  left: 600px;
+  padding: 0px 10px;
+  display: inline;
 }
-
-.nav-links li {
-  display: inline-block;
-  margin: 0 12px;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  padding: 6px 10px;
-  font-size: 17px;
-}
-
-.nav-links li:hover {
+li:hover {
   border-radius: 10px;
   border: solid orange;
   text-shadow: 0 0 10px white;
@@ -91,7 +77,10 @@ position: absolute;
 top: 85px;
 left: -600px;
 }
-
+a {
+  color: #fff;
+  text-decoration: none;
+}
 #Delete_your_choices{
 font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
  position: absolute;
@@ -125,71 +114,7 @@ background-color: white;
 width:500px;
 height:263px;
 }
-.mobile-menu-btn {
-  display: none;
-  position: absolute;
-  right: 20px;
-  top: 25px;
-  font-size: 32px;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  z-index: 2000;
-}
-
-/* ============================
-   MOBILE NAV
-============================ */
-@media (max-width: 768px) {
-
-  .mobile-menu-btn {
-    display: block;
-  }
-
-  nav {
-    position: absolute;
-    top: 65px;
-    left: 0;
-    width: 100%;
-    background: rgba(20, 20, 20, 0.95);
-    padding: 10px 0;
-    display: none;
-    z-index: 1000;
-  }
-
-  nav.open {
-    display: block;
-  }
-
-  .nav-links li {
-    display: block;
-    padding: 12px;
-    text-align: center;
-  }
-
-  .nav-links a {
-    font-size: 18px;
-    display: block;
-  }
-
-  h2 {
-    font-size: 22px;
-    top: 10px;
-    left: 15px;
-  }
-
-  h4 {
-    font-size: 12px;
-    top: 50px;
-    left: 15px;
-  }
-
-  hr {
-    display: none;
-  }
-
-  main.yc-main {
-    padding-top: 120px;
-  }
+a{
+text-decoration: none;
+color: #fff;
 }
