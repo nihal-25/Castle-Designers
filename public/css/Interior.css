@@ -369,60 +369,66 @@ a {
     transform: translate(1, 1);
   }  
 }
-
-/* ================================
-   MOBILE RESPONSIVE FIXES ONLY
-   ================================ */
+/* ============================================================
+      FINAL MOBILE FIX (Perfect Layout for Phones)
+   ============================================================ */
 @media (max-width: 768px) {
 
+  /* GENERAL */
   body {
-    background-position: center;
+    overflow-x: hidden;
     background-size: cover;
+    background-position: center;
   }
 
-  /* Header text */
+  /* HEADER */
   h2 {
-    font-size: 22px;
-    left: 10px;
-    top: 10px;
+    font-size: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15px;
+    text-align: center;
   }
 
   h4 {
-    margin-top: 0;
-    left: 10px;
-    top: 50px;
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 55px;
+    text-align: center;
   }
 
   hr {
-    display: none; /* hr will break mobile layout */
+    display: none;
   }
 
-  /* Main heading */
+  /* MAIN HEADING */
   h1 {
-    font-size: 32px;
+    font-size: 34px;
+    top: 110px;
     left: 50%;
-    top: 150px;
     transform: translateX(-50%);
     text-align: center;
+    width: 90%;
+    line-height: 1.2;
   }
 
   p {
     font-size: 16px;
+    top: 140px;
     left: 50%;
-    top: 180px;
     transform: translateX(-50%);
     text-align: center;
     width: 90%;
   }
 
-  /* NAV LIST */
+  /* NAVIGATION */
   nav ul {
+    margin-top: 180px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-top: 240px;
+    gap: 15px;
     align-items: center;
   }
 
@@ -430,31 +436,33 @@ a {
     display: block;
     position: static;
     left: 0;
-    margin: 0;
   }
 
   nav ul li:hover ul {
-    display: none;  /* disable dropdown hover on mobile */
+    display: none; /* disable dropdown hover on mobile */
   }
 
-  /* BUTTONS */
+  /* BUTTONS SECTION */
   .buttons {
+    margin-top: 40px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-top: 40px;
+    gap: 18px;
     align-items: center;
-    width: 100%;
   }
 
   .buttons a {
     position: static !important;
-    width: 200px;
-    height: 50px;
-    font-size: 16px;
+    width: 230px;
+    height: 52px;
+    font-size: 17px;
+    border-radius: 25px;
   }
 
+  /* Remove all absolute positions from mobile buttons */
   #btn1, #btn2, #btn3, #btn4 {
-    border-width: 3px;
+    top: unset !important;
+    left: unset !important;
   }
 }
