@@ -130,6 +130,9 @@ color: #fff;
   main.yc-main {
     padding-top: 5px !important;   /* default was 120px */
   }
+  .mobile-menu-btn {
+  display: none !important;
+}
 }
 
 
