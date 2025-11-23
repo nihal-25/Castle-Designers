@@ -159,3 +159,80 @@ ul li {
     scale: 1;
   }
 }
+/* ============================================================
+      📱 MOBILE RESPONSIVE FIXES  (ONLY FOR WIDTH ≤ 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* CENTER THE TITLE */
+  h2.main,
+  h4 {
+    position: relative !important;
+    left: 0 !important;
+    top: 20px !important;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+  }
+
+  h2.main {
+    font-size: 22px !important;
+    letter-spacing: 6px !important;
+  }
+
+  h4 {
+    top: 30px !important;
+    font-size: 12px !important;
+  }
+
+  /* REMOVE THE BIG HR */
+  hr {
+    display: none !important;
+  }
+
+  /* CENTER THE FORM FOR MOBILE */
+  form {
+    position: relative !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    margin: 120px auto 0;
+    width: 90% !important;
+    padding: 25px !important;
+    border-radius: 25px !important;
+  }
+
+  /* MAKE INPUTS RESPONSIVE */
+  input {
+    width: 100% !important;
+    font-size: 16px !important;
+  }
+
+  /* RESPONSIVE ICONS */
+  ion-icon {
+    left: 0 !important;
+    top: 20px !important;
+    margin-bottom: 10px;
+    position: relative !important;
+  }
+
+  /* SIGNUP BUTTON */
+  #signup {
+    width: 100% !important;
+    font-size: 18px !important;
+    height: 50px !important;
+    margin-top: 20px;
+  }
+
+  /* LOGIN LINK BELOW */
+  h5 {
+    position: relative !important;
+    text-align: center !important;
+    left: 0 !important;
+    bottom: -10px !important;
+    font-size: 16px !important;
+  }
+}
